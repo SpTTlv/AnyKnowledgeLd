@@ -19,5 +19,14 @@
 
     // Configure the view for the selected state
 }
-
+- (IBAction)BtnClick:(UIButton *)sender {
+    
+    if (self.myblock) {
+        self.myblock(sender);
+    }
+}
+- (void)handleBtnClick:(btnBlock)myblock
+{
+    self.myblock = myblock;
+}
 @end

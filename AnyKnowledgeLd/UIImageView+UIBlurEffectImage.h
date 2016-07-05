@@ -17,6 +17,8 @@
  *
  *  @return imageView
  */
-+ (UIImageView *)getvisualEffectViewImage:(NSString *)imageName alpha:(CGFloat)alpha;
++ (UIImageView *)getvisualEffectViewImage:(NSString *)imageName alpha:(CGFloat)alpha initWithFrame:(CGRect)rect;
+
+
 
 @end

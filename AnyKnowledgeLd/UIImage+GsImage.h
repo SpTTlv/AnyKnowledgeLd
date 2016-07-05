@@ -10,4 +10,14 @@
 
 @interface UIImage (GsImage)
 
+/**
+ *  高斯模糊
+ *
+ *  @param image image description
+ *  @param blur  blur description
+ *
+ *  @return image
+ */
++(UIImage *)boxblurImage:(UIImage *)image withBlurNumber:(CGFloat)blur;
+
 @end

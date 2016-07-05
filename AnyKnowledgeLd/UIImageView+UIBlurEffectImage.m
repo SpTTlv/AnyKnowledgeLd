@@ -7,16 +7,17 @@
 //
 
 #import "UIImageView+UIBlurEffectImage.h"
-
 @implementation UIImageView (UIBlurEffectImage)
 
-+ (UIImageView *)getvisualEffectViewImage:(NSString *)imageName alpha:(CGFloat)alpha
++ (UIImageView *)getvisualEffectViewImage:(NSString *)imageName alpha:(CGFloat)alpha initWithFrame:(CGRect)rect
 {
     UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
     visualEffectView.alpha = alpha;
     UIImageView * imageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    imageV.frame = rect;
     visualEffectView.frame = imageV.bounds;
     
+    [imageV addSubview:visualEffectView];
     return imageV;
 }
 

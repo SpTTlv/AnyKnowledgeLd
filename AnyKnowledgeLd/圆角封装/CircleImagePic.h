@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface CircleImagePic : NSObject
+/**
+ *  圆角封装
+ *
+ *  @param circleView   view
+ *  @param cornerRadius cornerRadius
+ */
++ (void)getCircleImage:(UIView *)circleView cornerRadius:(NSInteger)cornerRadius;
 
 @end
