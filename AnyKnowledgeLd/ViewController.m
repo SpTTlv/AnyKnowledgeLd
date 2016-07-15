@@ -128,6 +128,41 @@ UITableViewDelegate
     gsImV.frame = CGRectMake(100, 100, 200, 200);
     [self.view addSubview:gsImV];
     
+    //13. NSArray 快速计算
+    NSArray *arrayReckon = @[@"2.0", @"2.3", @"3.0", @"4.0", @"10"];
+    //总和 最大值 最小值 和 平均值
+    CGFloat numR = [[arrayReckon valueForKeyPath:@"@sum.floatValue"] floatValue];
+    CGFloat avg = [[arrayReckon valueForKeyPath:@"@avg.floatValue"] floatValue];
+    CGFloat max =[[arrayReckon valueForKeyPath:@"@max.floatValue"] floatValue];
+    CGFloat min =[[arrayReckon valueForKeyPath:@"@min.floatValue"] floatValue];
+    NSLog(@"13. %.1lf",numR);
+    
+    
+    //14.图片拉伸
+    UIImage * imageStret = [UIImage imageNamed:@"xiaopingguo"];
+    NSData * imageDate =UIImagePNGRepresentation(imageStret);
+    //14.1 把image转成data 然后把data 转成NSString
+    NSString * imageSSS2 = [[[[NSString stringWithFormat:@"%@",imageDate]
+       stringByReplacingOccurrencesOfString: @"<" withString: @""]
+      stringByReplacingOccurrencesOfString: @">" withString: @""]
+     stringByReplacingOccurrencesOfString: @" " withString: @""];
+    
+    
+
+    
+    imageStret = [imageStret stretchableImageWithLeftCapWidth:imageStret.size.width * 0.5 topCapHeight:imageStret.size.height * 0.5];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:imageStret];
+    
+    //15.计算NSString一行的高度
+    NSString * heightStr = @"计算NSString一行的高度";
+    CGSize heightSize = [heightStr sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0f]}];
+    NSLog(@"计算NSString一行的高度  == %lf",heightSize.height);
+    
+    
+    //16. 去除字符串的特殊符号跟空格
+    NSString * deleteStringSpace = @"   kongge %^##@%$";
+    deleteStringSpace = [deleteStringSpace stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSLog(@"去除特殊符号  string == %@",deleteStringSpace);
 
 }
 - (NSString *)dateNumTodate:(NSString *)string
